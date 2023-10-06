@@ -31,7 +31,7 @@ const Profile = () => {
         ],
       })
     })
-  }, [])
+  }, [cookies])
 
   return (
     <div style={{ textAlign: "center" }}>

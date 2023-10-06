@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     setCookie("cookie-set", true, {})
-  }, [])
+  }, [setCookie])
   return (
     <>
       <Routes>

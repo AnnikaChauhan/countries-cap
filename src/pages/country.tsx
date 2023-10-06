@@ -25,7 +25,7 @@ const Country = () => {
     getCountry(id)
       .then((data) => setCountry(data?.[0]))
       .catch((e) => console.log(e))
-  }, [])
+  }, [id, setCookie])
 
   return (
     <div style={{ textAlign: "center" }}>

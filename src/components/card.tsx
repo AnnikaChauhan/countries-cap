@@ -28,7 +28,7 @@ const SimpleCard = ({
     if (favourites && favourites.includes(name)) {
       setFavourite(true)
     }
-  }, [favourites])
+  }, [favourites, name])
 
   return (
     <Card sx={{ minWidth: 200 }} style={{ margin: "10px" }}>
