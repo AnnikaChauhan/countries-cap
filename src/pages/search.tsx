@@ -5,6 +5,7 @@ import { useState } from "react"
 import { getCountry } from "../api/countries"
 import Card from "../components/card"
 import { useNavigate } from "react-router-dom"
+import { Capacitor } from "@capacitor/core"
 
 const Search = () => {
   const navigate = useNavigate()
@@ -21,6 +22,7 @@ const Search = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         id="outlined-basic"
+        type="text"
         label="Search here"
         variant="outlined"
         style={{ maxWidth: "500px", marginTop: "24px" }}
@@ -57,6 +59,34 @@ const Search = () => {
               )
             })}
           </Box>
+        </div>
+      )}
+      {Capacitor.isNativePlatform() && (
+        <div>
+          <TextField
+            id="outlined-basic"
+            type="tel"
+            label="Telephone"
+            variant="outlined"
+            style={{ maxWidth: "500px", marginTop: "24px" }}
+            fullWidth={true}
+          />
+          <TextField
+            id="outlined-basic"
+            type="email"
+            label="Email"
+            variant="outlined"
+            style={{ maxWidth: "500px", marginTop: "24px" }}
+            fullWidth={true}
+          />
+          <TextField
+            id="outlined-basic"
+            type="password"
+            label="Password"
+            variant="outlined"
+            style={{ maxWidth: "500px", marginTop: "24px" }}
+            fullWidth={true}
+          />
         </div>
       )}
     </div>
