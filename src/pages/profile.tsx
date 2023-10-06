@@ -14,7 +14,6 @@ const Profile = () => {
     console.log("COOKIES", cookies)
     let display = null
     LocalNotifications.requestPermissions().then((data) => {
-      console.log("console log!!", data)
       setDisplay(data)
       display = data.display
       if (data.display === "denied") {
