@@ -8,8 +8,7 @@ import { useCookies } from "react-cookie"
 import { useEffect } from "react"
 
 const App = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookie] = useCookies(["cookie-set"])
+  const [, setCookie] = useCookies(["cookie-set"])
 
   useEffect(() => {
     setCookie("cookie-set", true, {})

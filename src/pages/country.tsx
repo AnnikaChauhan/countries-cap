@@ -18,8 +18,7 @@ export const Item = styled(Paper)(({ theme }) => ({
 const Country = () => {
   const { id } = useParams()
   const [country, setCountry] = useState<any>(null)
-  // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookie] = useCookies(["last-viewed-country"])
+  const [, setCookie] = useCookies(["last-viewed-country"])
 
   useEffect(() => {
     setCookie("last-viewed-country", id, {})
