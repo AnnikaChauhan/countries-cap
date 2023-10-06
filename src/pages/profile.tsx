@@ -12,7 +12,6 @@ const Profile = () => {
 
   useEffect(() => {
     console.log("COOKIES", cookies)
-    let display = null
     LocalNotifications.requestPermissions().then((data) => {
       setDisplay(data)
       display = data.display
