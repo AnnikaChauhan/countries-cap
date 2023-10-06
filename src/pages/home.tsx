@@ -8,7 +8,26 @@ import { useNavigate } from "react-router-dom"
 const Home = () => {
   const navigate = useNavigate()
   const [countryNames, setCountryNames] = useState<null | []>(null)
+  const [favouriteCountries, setFavouriteCountries] = useState<any>([])
+
+  const toggleFavourite = (name: any, isFavourite: boolean) => {
+    if (isFavourite) {
+      const newFavCountries = favouriteCountries.filter(
+        (country: any) => country !== name
+      )
+      setFavouriteCountries(newFavCountries)
+      localStorage.setItem("favourites", JSON.stringify(newFavCountries))
+    } else {
+      const newFavCountries = [...favouriteCountries, name]
+      setFavouriteCountries(newFavCountries)
+      localStorage.setItem("favourites", JSON.stringify(newFavCountries))
+    }
+  }
+
   useEffect(() => {
+    const favCountries =
+      localStorage.getItem("favourites") || JSON.stringify([])
+    setFavouriteCountries(JSON.parse(favCountries))
     getCountries().then((data) =>
       setCountryNames(
         data.map((c: any) => ({ flag: c.flag, name: c.name.common }))
@@ -36,6 +55,8 @@ const Home = () => {
                 name={c.name}
                 flag={c.flag}
                 onClick={() => navigate(`/country/${c.name}`)}
+                favourites={favouriteCountries}
+                toggleFavourite={toggleFavourite}
               />
             )
           })}

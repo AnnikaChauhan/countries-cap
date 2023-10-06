@@ -3,16 +3,33 @@ import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
+import { IconButton } from "@mui/material"
+import StarOutlineIcon from "@mui/icons-material/StarOutline"
+import StarIcon from "@mui/icons-material/Star"
+import { useEffect, useState } from "react"
 
 const SimpleCard = ({
   name,
   flag,
   onClick,
+  favourites,
+  toggleFavourite,
 }: {
   name: string
   flag: string
   onClick: () => any
+  favourites?: any
+  toggleFavourite?: any
 }) => {
+  const [favourite, setFavourite] = useState(false)
+
+  useEffect(() => {
+    setFavourite(false)
+    if (favourites && favourites.includes(name)) {
+      setFavourite(true)
+    }
+  }, [favourites])
+
   return (
     <Card sx={{ minWidth: 200 }} style={{ margin: "10px" }}>
       <CardContent>
@@ -23,10 +40,13 @@ const SimpleCard = ({
           {flag}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions style={{ display: "flex", justifyContent: "space-between" }}>
         <Button size="small" onClick={onClick}>
           Learn More
         </Button>
+        <IconButton onClick={() => toggleFavourite(name, favourite)}>
+          {favourite ? <StarIcon /> : <StarOutlineIcon />}
+        </IconButton>
       </CardActions>
     </Card>
   )
