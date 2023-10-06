@@ -4,8 +4,15 @@ import { Routes, Route, Outlet } from "react-router-dom"
 import Profile from "./pages/profile"
 import Country from "./pages/country"
 import Search from "./pages/search"
+import { useCookies } from "react-cookie"
+import { useEffect } from "react"
 
 const App = () => {
+  const [_cookies, setCookie] = useCookies(["cookie-set"])
+
+  useEffect(() => {
+    setCookie("cookie-set", true, {})
+  }, [])
   return (
     <>
       <Routes>

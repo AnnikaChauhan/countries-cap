@@ -5,8 +5,9 @@ import { useEffect, useState } from "react"
 import { styled } from "@mui/material/styles"
 import Paper from "@mui/material/Paper"
 import Grid from "@mui/material/Grid"
+import { useCookies } from "react-cookie"
 
-const Item = styled(Paper)(({ theme }) => ({
+export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -17,8 +18,10 @@ const Item = styled(Paper)(({ theme }) => ({
 const Country = () => {
   const { id } = useParams()
   const [country, setCountry] = useState<any>(null)
+  const [_cookies, setCookie] = useCookies(["last-viewed-country"])
 
   useEffect(() => {
+    setCookie("last-viewed-country", id, {})
     getCountry(id)
       .then((data) => setCountry(data?.[0]))
       .catch((e) => console.log(e))
