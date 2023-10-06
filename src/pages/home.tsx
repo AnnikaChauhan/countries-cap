@@ -32,7 +32,7 @@ const Home = () => {
           {countryNames.map((c: any, index: number) => {
             return (
               <Card
-                key={`${c}-${index}`}
+                key={index}
                 name={c.name}
                 flag={c.flag}
                 onClick={() => navigate(`/country/${c.name}`)}

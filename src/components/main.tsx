@@ -7,7 +7,6 @@ const Main = ({ children }: any) => {
         style={{
           margin: "24px",
           padding: "24px",
-          border: "1px solid #848884",
           borderRadius: "12px",
         }}
       >
