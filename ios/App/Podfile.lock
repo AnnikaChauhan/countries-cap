@@ -3,6 +3,8 @@ PODS:
     - CapacitorCordova
   - CapacitorAppLauncher (5.0.6):
     - Capacitor
+  - CapacitorCamera (5.0.7):
+    - Capacitor
   - CapacitorCordova (5.4.2)
   - CapacitorGoogleMaps (5.3.3):
     - Capacitor
@@ -44,6 +46,7 @@ PODS:
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorAppLauncher (from `../../node_modules/@capacitor/app-launcher`)"
+  - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorGoogleMaps (from `../../node_modules/@capacitor/google-maps`)"
   - "CapacitorLocalNotifications (from `../../node_modules/@capacitor/local-notifications`)"
@@ -61,6 +64,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorAppLauncher:
     :path: "../../node_modules/@capacitor/app-launcher"
+  CapacitorCamera:
+    :path: "../../node_modules/@capacitor/camera"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorGoogleMaps:
@@ -77,6 +82,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Capacitor: 8a9db42d105f55843cd8ed2a3cb54e2b78e7f102
   CapacitorAppLauncher: 5a9f06c13c6b4f5d65b550a07128ef04f3a216b3
+  CapacitorCamera: 084b0b228bba7d00587910337b1c89e93b1d32ab
   CapacitorCordova: cfcc06b698481da655415985eeb2b8da363f8451
   CapacitorGoogleMaps: 8268d118faf014c5004b0e711e52af7190257451
   CapacitorLocalNotifications: c2d8b14794064fd4814b1d6c4ddbac8029afa295
@@ -86,6 +92,6 @@ SPEC CHECKSUMS:
   Google-Maps-iOS-Utils: f77eab4c4326d7e6a277f8e23a0232402731913a
   GoogleMaps: 032f676450ba0779bd8ce16840690915f84e57ac
 
-PODFILE CHECKSUM: d9698d8501de78adcfef72a3082c1f5df22020d8
+PODFILE CHECKSUM: 9432cc46d6d2dd81ceabce9ce6f310820e99936e
 
 COCOAPODS: 1.13.0
