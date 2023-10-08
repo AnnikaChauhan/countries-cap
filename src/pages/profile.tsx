@@ -5,16 +5,22 @@ import { useEffect, useState } from "react"
 import { useCookies } from "react-cookie"
 import Grid from "@mui/material/Grid"
 import { Item } from "./country"
+import { SplashScreen } from "@capacitor/splash-screen"
 
 const Profile = () => {
   const [display, setDisplay] = useState<any>(null)
   const [cookies] = useCookies(["cookie-set", "last-viewed-country"])
 
   useEffect(() => {
+    // Show the splash for two seconds and then automatically hide it:
+    SplashScreen.show({
+      showDuration: 2000,
+      autoHide: true,
+    })
     console.log("COOKIES", cookies)
     LocalNotifications.requestPermissions().then((data) => {
       setDisplay(data)
-      if (data.display === "denied") {
+      if (data.display === "denied" && Capacitor.isNativePlatform()) {
         alert("Please allow notifications")
       }
       LocalNotifications.schedule({

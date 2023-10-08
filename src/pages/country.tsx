@@ -1,11 +1,14 @@
 import { useParams } from "react-router-dom"
 import { getCountry } from "../api/countries"
-import { Typography } from "@mui/material"
+import { Typography, IconButton } from "@mui/material"
 import { useEffect, useState } from "react"
 import { styled } from "@mui/material/styles"
 import Paper from "@mui/material/Paper"
 import Grid from "@mui/material/Grid"
 import { useCookies } from "react-cookie"
+import { Share } from "@capacitor/share"
+import IosShareIcon from "@mui/icons-material/IosShare"
+import { Capacitor } from "@capacitor/core"
 
 export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,6 +23,15 @@ const Country = () => {
   const [country, setCountry] = useState<any>(null)
   const [, setCookie] = useCookies(["last-viewed-country"])
 
+  const share = async () => {
+    return await Share.share({
+      title: country.name.common,
+      text: `Check out this info on this interesting country ${country.name.common}!`,
+      url: `http://localhost:3000/country/${id}`,
+      dialogTitle: "Share with buddies",
+    })
+  }
+
   useEffect(() => {
     setCookie("last-viewed-country", id, {})
     getCountry(id)
@@ -33,6 +45,7 @@ const Country = () => {
       {country && (
         <>
           <Typography variant="h1">{country.flag}</Typography>
+
           <Grid container spacing={2}>
             <Grid item xs={4}>
               <Item>Population</Item>
@@ -69,6 +82,15 @@ const Country = () => {
               <Item>{country.subregion}</Item>
             </Grid>
           </Grid>
+          {Capacitor.isNativePlatform() && (
+            <IconButton
+              size="large"
+              style={{ marginTop: "24px" }}
+              onClick={Capacitor.isNativePlatform() ? share : () => {}}
+            >
+              <IosShareIcon />
+            </IconButton>
+          )}
         </>
       )}
     </div>

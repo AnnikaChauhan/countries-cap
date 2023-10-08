@@ -1,7 +1,9 @@
 import MenuIcon from "@mui/icons-material/Menu"
-import { IconButton, Menu, MenuItem } from "@mui/material"
+import { Button, IconButton, Menu, MenuItem } from "@mui/material"
 import * as React from "react"
 import { useNavigate } from "react-router-dom"
+import { AppLauncher } from "@capacitor/app-launcher"
+import { Capacitor } from "@capacitor/core"
 
 const TopBar = () => {
   const navigate = useNavigate()
@@ -14,8 +16,18 @@ const TopBar = () => {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  const openApp = async () => {
+    await AppLauncher.openUrl({
+      url: "com.countries.app",
+    })
+  }
+
   return (
     <div style={{ width: "100%", textAlign: "right" }}>
+      {Capacitor.isNativePlatform() === false && window.innerWidth < 400 && (
+        <Button onClick={openApp}>Open App</Button>
+      )}
       <IconButton
         size="large"
         edge="start"
