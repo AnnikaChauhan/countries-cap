@@ -24,7 +24,15 @@ const TopBar = () => {
   }
 
   return (
-    <div style={{ width: "100%", textAlign: "right" }}>
+    <div
+      style={{
+        width: "100%",
+        textAlign: "right",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <h3>The countries app</h3>
       {Capacitor.isNativePlatform() === false && window.innerWidth < 400 && (
         <Button onClick={openApp}>Open App</Button>
       )}
@@ -70,7 +78,7 @@ const TopBar = () => {
             navigate("/profile")
           }}
         >
-          Favourites
+          Profile
         </MenuItem>
       </Menu>
     </div>

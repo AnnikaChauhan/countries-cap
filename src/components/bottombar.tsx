@@ -43,7 +43,7 @@ const BottomBar = () => {
           icon={<SearchIcon />}
         />
         <BottomNavigationAction
-          label="Favorites"
+          label="Profile"
           value="/profile"
           icon={<FavoriteIcon />}
         />

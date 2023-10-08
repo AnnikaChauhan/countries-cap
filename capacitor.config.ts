@@ -13,6 +13,12 @@ const config: CapacitorConfig = {
       iconColor: "#488AFF",
       sound: "beep.wav",
     },
+    CapacitorCookies: {
+      enabled: true,
+    },
+    // SplashScreen: {
+    //   androidSplashResourceName: "splash",
+    // },
   },
 }
 
