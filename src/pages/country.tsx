@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { getCountry } from "../api/countries"
 import { Typography, IconButton, Button } from "@mui/material"
-import { MutableRefObject, useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { styled } from "@mui/material/styles"
 import Paper from "@mui/material/Paper"
 import Grid from "@mui/material/Grid"
@@ -126,7 +126,7 @@ const Country = () => {
               <div style={{ height: 200, width: 200 }}>
                 <img
                   src={imageElement}
-                  alt="uploaded image"
+                  alt="uploade"
                   loading="lazy"
                   width="200"
                   height="200"
